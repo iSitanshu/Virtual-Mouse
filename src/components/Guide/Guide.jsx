@@ -1,0 +1,46 @@
+import React from 'react';
+import './Guide.css';
+import StepCard from '../StepCard/StepCard';
+
+const Guide = () => {
+  const openCamera = async () => {
+    try {
+      await navigator.mediaDevices.getUserMedia({ video: true });
+      alert('Camera access granted');
+    } catch (error) {
+      alert('Camera access denied');
+    }
+  };
+
+  return (
+    <div className="guide">
+      <div className="guide-row">
+        <StepCard
+          stepNumber={1}
+          stepImage="src/assets/camera.jpeg"
+          stepTitle="Enable Camera Access"
+          stepDescription="Raise your hand with an open palm towards the camera and allow the website to access your camera."
+          buttonLabel="Click Me"
+          onButtonClick={openCamera}
+        />
+        <div className="arrow"></div>
+        <StepCard
+          stepNumber={2}
+          stepImage="src/assets/image.png"
+          stepTitle="Learn Gestures"
+          stepDescription="Mouse Movement: Move your hand left, right, up, or down to control the cursor. Click: Close your hand into a fist and then open it quickly to simulate a mouse click. Scroll: Move your hand up or down while keeping it open to scroll through pages."
+          isCenter={true}
+        />
+        <div className="arrow"></div>
+        <StepCard
+          stepNumber={3}
+          stepImage="src/assets/socialmedia.jpeg"
+          stepTitle="Start Interacting"
+          stepDescription="Use the learned gestures to navigate and interact with the website."
+        />
+      </div>
+    </div>
+  );
+}
+
+export default Guide;

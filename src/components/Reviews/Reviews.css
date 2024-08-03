@@ -1,0 +1,65 @@
+.reviews {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+.reviews h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.reviews-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 65px; /* Gap between review cards */
+}
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  width: 240px; /* Base width for review cards */
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.review-card:hover {
+  transform: scale(1.1); /* Increase size on hover for all cards */
+}
+
+.center-review {
+  transform: scale(1.1); /* Slightly larger by default */
+}
+
+.center-review:hover {
+  transform: scale(1.2); /* Increase size more on hover for the center card */
+}
+
+.review-card img {
+  height: 200px;
+  width: 200px;
+}
+
+.review-card h2 {
+  margin-bottom: 10px;
+  color: white;
+}
+
+.review-rating {
+  margin-bottom: 10px;
+  color: #FFD700;
+}
+
+.review-card p {
+  color: #666;
+}
