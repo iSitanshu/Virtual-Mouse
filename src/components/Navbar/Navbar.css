@@ -74,6 +74,10 @@
     align-items: center;
 }
 
+input{
+    background-color: black;
+}
+
 .navbar-right .signup-button {
     color: white;
     background: black;
