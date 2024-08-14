@@ -1,6 +1,7 @@
 import React from 'react';
 import './Reviews.css';
 import { Logogif } from '../../assets/assets';
+import { BackgroundImg } from '../../assets/assets';
 
 
 const reviews = [
@@ -26,7 +27,9 @@ const reviews = [
 
 const Reviews = () => {
   return (
-    <div className="reviews">
+    <div className="reviews" style={{ backgroundImage: `url(${BackgroundImg})`,
+    backgroundSize: 'cover', backgroundPosition: 'center', 
+    backgroundRepeat: 'no-repeat', minHeight: '50vh' }}>
       <div className="reviews-list">
         {reviews.map((review, index) => (
           <div key={index} className={`review-card ${index === 1 ? 'center-review' : ''}`}>

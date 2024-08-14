@@ -3,7 +3,6 @@
     margin: 20px auto;
     width: 80%; 
     height: 500px;
-    /* background: url("src/assets/stars.jpeg"); */
     border-radius: 10px;
     text-align: center;
     justify-content: center;
@@ -39,6 +38,7 @@
     padding: 15px;
     width: 130px;
     font-size: 20px;
+    background-color: black;
     color: white;
     border: 1px solid white;
 }
@@ -71,3 +71,25 @@
 .card-content h1{font-size: 35px; text-align: start;}
 .card-content p{font-size: 17px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
   
+@media (max-width: 900px){
+    .header-content{
+        display: flex;
+        flex-direction: column;
+        margin: -100px auto;
+    }
+    .header-content-left a,h1{
+        margin: 0 auto;
+    }
+    .header-content-left button{
+        background-color: yellow;
+        border: none;
+        color: black;
+    }
+    h1{
+        text-align: center;
+    }
+    .header-content-right{
+        display: none;
+    }
+
+}
