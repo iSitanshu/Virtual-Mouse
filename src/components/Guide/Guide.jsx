@@ -1,6 +1,7 @@
 import React from 'react';
 import './Guide.css';
 import StepCard from '../StepCard/StepCard';
+import { camera, hand, socialmedia } from '../../assets/assets';
 
 const Guide = () => {
   const openCamera = async () => {
@@ -17,7 +18,7 @@ const Guide = () => {
       <div className="guide-row">
         <StepCard
           stepNumber={1}
-          stepImage="src/assets/camera.jpeg"
+          stepImage={camera}
           stepTitle="Enable Camera Access"
           stepDescription="Raise your hand with an open palm towards the camera and allow the website to access your camera."
           buttonLabel="Click Me"
@@ -26,7 +27,7 @@ const Guide = () => {
         <div className="arrow"></div>
         <StepCard
           stepNumber={2}
-          stepImage="src/assets/image.png"
+          stepImage={hand}
           stepTitle="Learn Gestures"
           stepDescription="Mouse Movement: Move your hand left, right, up, or down to control the cursor. Click: Close your hand into a fist and then open it quickly to simulate a mouse click. Scroll: Move your hand up or down while keeping it open to scroll through pages."
           isCenter={true}
@@ -34,7 +35,7 @@ const Guide = () => {
         <div className="arrow"></div>
         <StepCard
           stepNumber={3}
-          stepImage="src/assets/socialmedia.jpeg"
+          stepImage={socialmedia}
           stepTitle="Start Interacting"
           stepDescription="Use the learned gestures to navigate and interact with the website."
         />

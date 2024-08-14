@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-scroll';
+import { logo } from '../../assets/assets'
 import './Navbar.css';
 
 const Navbar = ({setShowLogin}) => {
@@ -7,7 +8,7 @@ const Navbar = ({setShowLogin}) => {
     <div className="navbar-header">
       <div className="navbar-left">
         <Link to="home" smooth={true} duration={500}>
-          <img src="src/assets/Lazy.jpeg" alt="Virtual Mouse Logo"/>
+          <img src={logo} alt="Virtual Mouse Logo"/>
         </Link>
           <p>Virtual <br />Mouse</p>
       </div>

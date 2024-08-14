@@ -1,24 +1,26 @@
 import React from 'react';
 import './Reviews.css';
+import { Logogif } from '../../assets/assets';
+
 
 const reviews = [
   {
     name: 'Mummy',
     rating: 5,
     comment: 'The virtual mouse system is amazing! It has completely changed the way I interact with my computer.',
-    image: 'src/assets/Logogif.gif',
+    image: Logogif,
   },
   {
     name: 'Papa',
     rating: 4,
     comment: 'Very innovative and user-friendly. Just a few minor glitches but overall a great product Highly recommend for anyone looking to enhance their experience!.',
-    image: 'src/assets/Logogif.gif',
+    image: Logogif,
   },
   {
     name: 'Debu',
     rating: 5,
     comment: 'Fantastic technology! Works seamlessly and makes computer interaction much easier.',
-    image: 'src/assets/Logogif.gif',
+    image: Logogif,
   },
 ];
 

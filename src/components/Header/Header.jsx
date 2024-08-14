@@ -1,5 +1,6 @@
 import React from 'react';
 import './Header.css';
+import { BackgroundVid } from '../../assets/assets';
 import { Link } from 'react-scroll';
 
 const Header = () => {
