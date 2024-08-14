@@ -15,10 +15,9 @@ const App = () => {
   const [showLogin, setShowLogin] = useState(false);
 
   return (
-    // <div className="App" style={{ backgroundImage: `url(${BackgroundImg})`,
-    //  backgroundSize: 'cover', backgroundPosition: 'center', 
-    //  backgroundRepeat: 'no-repeat', minHeight: '100vh' }}>
-      <div className="App">
+    <div className="App" style={{ backgroundImage: `url(${BackgroundImg})`,
+     backgroundSize: 'cover', backgroundPosition: 'center', 
+     backgroundRepeat: 'no-repeat', minHeight: '100vh' }}>
       {showLogin && <LoginPopup setShowLogin={setShowLogin} />}
       <div className='app'>
         <Navbar setShowLogin={setShowLogin} />
