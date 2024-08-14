@@ -8,12 +8,17 @@ import './App.css';
 import LoginPopup from './components/LoginPopup/LoginPopup';
 import Line from './components/Line/Line';
 import Mouse from './components/Mouse/Mouse';
+import { BackgroundImg } from './assets/assets';
+import { BackgroundVid } from './assets/assets';
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
 
   return (
-    <div className="App">
+    // <div className="App" style={{ backgroundImage: `url(${BackgroundImg})`,
+    //  backgroundSize: 'cover', backgroundPosition: 'center', 
+    //  backgroundRepeat: 'no-repeat', minHeight: '100vh' }}>
+      <div className="App">
       {showLogin && <LoginPopup setShowLogin={setShowLogin} />}
       <div className='app'>
         <Navbar setShowLogin={setShowLogin} />

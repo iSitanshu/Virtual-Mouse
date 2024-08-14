@@ -1,6 +1,7 @@
 import React from 'react';
 import './Guide.css';
 import StepCard from '../StepCard/StepCard';
+import { BackgroundImg } from '../../assets/assets';
 import { camera, hand, socialmedia } from '../../assets/assets';
 
 const Guide = () => {
@@ -14,7 +15,9 @@ const Guide = () => {
   };
 
   return (
-    <div className="guide">
+    <div className="guide" style={{ backgroundImage: `url(${BackgroundImg})`,
+    backgroundSize: 'cover', backgroundPosition: 'center', 
+    backgroundRepeat: 'no-repeat', minHeight: '100vh' }}>
       <div className="guide-row">
         <StepCard
           stepNumber={1}
