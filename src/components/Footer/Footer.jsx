@@ -14,7 +14,7 @@ const Footer = () => {
                         <img src={Safari} alt="" height={80} />
                         <img src={OperaMini} alt="" height={70} />
                         <img src={Edge} alt="" height={80} className='last' /></div>
-                    <button>Install Extension</button>
+                    <button className='btn'>Install Extension</button>
                 </div>
                 <div className='footer' id='footer'>
                     <div className="footer-content">

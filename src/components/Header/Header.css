@@ -93,3 +93,26 @@
     }
 
 }
+
+@media (max-height: 900px){
+    .nameinto{
+        margin-top: 150px auto;
+    }
+    .header-content-left{
+        margin-bottom: 60px;
+        gap: 30px;
+    }
+}
+@media (max-height: 750px) {
+    .nameinto{
+        margin-top: 270px;
+        text-align: start;
+        display: block;
+    }
+    .header-content-left{
+        margin-bottom: 160px;
+    }
+    p{
+        display: none;
+    }
+}

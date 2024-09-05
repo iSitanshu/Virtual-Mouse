@@ -87,7 +87,7 @@
     border: none;
     color: black;
   }
-  
+
   @media (max-width: 1300px){
     .navbar-header{
       padding: auto;
@@ -137,12 +137,9 @@
   }
   
   @media (max-width: 480px) {
-    .navbar-left p {
-      display: none;
-    }
-  
-    .navbar-right {
-      display: none;
+    .navbar-header{
+      display: flex;
+      justify-content: space-between;
     }
   
     .navbar-menu li:nth-child(n+3) {

@@ -2,10 +2,12 @@ import React from 'react';
 import { Link } from 'react-scroll';
 import { logo } from '../../assets/assets'
 import './Navbar.css';
+import { BackgroundImg } from '../../assets/assets';
 
 const Navbar = ({setShowLogin}) => {
   return (
-    <div className="navbar-header">
+      <div className="navbar-header" style={{ backgroundImage: `url(${BackgroundImg})`,
+      backgroundSize: 'cover', backgroundPosition: 'center'}}>
       <div className="navbar-left">
         <Link to="home" smooth={true} duration={500}>
           <img src={logo} alt="Virtual Mouse Logo"/>

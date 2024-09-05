@@ -9,6 +9,11 @@ const Guide = () => {
     try {
       await navigator.mediaDevices.getUserMedia({ video: true });
       alert('Camera access granted');
+
+      const response = await fetch('http://localhost:5000/start_camera');
+      const message = await response.text();
+      alert(message);
+      
     } catch (error) {
       alert('Camera access denied');
     }
