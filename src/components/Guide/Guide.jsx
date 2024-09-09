@@ -5,24 +5,43 @@ import { BackgroundImg } from '../../assets/assets';
 import { camera, hand, socialmedia } from '../../assets/assets';
 
 const Guide = () => {
-  useEffect(() => {
-    //go to the folder 
-  }, [])
-  
   const openCamera = async () => {
     try {
-      await navigator.mediaDevices.getUserMedia({ video: true });
-      alert('Camera access granted');
-
-      // Trigger the Python script on the server side
-      const response = await fetch('http://localhost:5000/start_camera'); // This calls your Flask backend
+      // Send a request to the Flask backend to trigger the Python script
+      const response = await fetch('http://localhost:5000/start_camera');
       const data = await response.json();
-      alert(data.message);
-      
+
+      if (response.ok) {
+        alert(data.message);
+      } else {
+        alert('Failed to start gesture control');
+      }
     } catch (error) {
-      alert('Camera access denied');
+      alert('Error occurred while starting gesture control');
     }
   };
+
+
+  
+  // const openCamera = async () => {
+  //   try {
+  //     await navigator.mediaDevices.getUserMedia({ video: true });
+  //     alert('Camera access granted');
+
+  //     // Trigger the Python script on the server side
+  //     const response = await fetch('http://localhost:5000/start_camera'); // This calls your Flask backend
+      
+  //     if (response.ok) {
+  //       const data = await response.json();
+  //       alert(data.message);
+  //     } else {
+  //       alert('Failed to start gesture control');
+  //     }
+      
+  //   } catch (error) {
+  //     alert('Camera access denied');
+  //   }
+  // };
 
   return (
     <div className="guide" style={{ backgroundImage: `url(${BackgroundImg})`,
