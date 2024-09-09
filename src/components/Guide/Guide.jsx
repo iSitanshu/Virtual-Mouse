@@ -14,13 +14,13 @@ const Guide = () => {
       await navigator.mediaDevices.getUserMedia({ video: true });
       alert('Camera access granted');
 
-      const response = await fetch('http://localhost:5000/start_camera');
-      const message = await response.text();
-      alert(message);
+      // Trigger the Python script on the server side
+      const response = await fetch('http://localhost:5000/start_camera'); // This calls your Flask backend
+      const data = await response.json();
+      alert(data.message);
       
     } catch (error) {
       alert('Camera access denied');
-
     }
   };
 
