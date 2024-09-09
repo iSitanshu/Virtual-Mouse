@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Guide.css';
 import StepCard from '../StepCard/StepCard';
 import { BackgroundImg } from '../../assets/assets';
 import { camera, hand, socialmedia } from '../../assets/assets';
 
 const Guide = () => {
+  useEffect(() => {
+    //go to the folder 
+  }, [])
+  
   const openCamera = async () => {
     try {
       await navigator.mediaDevices.getUserMedia({ video: true });
@@ -16,6 +20,7 @@ const Guide = () => {
       
     } catch (error) {
       alert('Camera access denied');
+
     }
   };
 
