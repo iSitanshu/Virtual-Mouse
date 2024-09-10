@@ -23,6 +23,5 @@ def start_camera():
     except Exception as e:
         return jsonify({"message": f"Error: {str(e)}"}), 500
 
-
 if __name__ == '__main__':
     app.run(port=5000)

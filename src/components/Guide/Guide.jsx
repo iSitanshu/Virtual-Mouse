@@ -21,7 +21,7 @@ const Guide = () => {
     }
   };
 
-
+dddddddd
   
   // const openCamera = async () => {
   //   try {
