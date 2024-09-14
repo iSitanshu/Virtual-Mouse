@@ -7,42 +7,21 @@ import { camera, hand, socialmedia } from '../../assets/assets';
 const Guide = () => {
   const openCamera = async () => {
     try {
-      // Send a request to the Flask backend to trigger the Python script
       const response = await fetch('http://localhost:5000/start_camera');
       const data = await response.json();
-
+  
       if (response.ok) {
         alert(data.message);
       } else {
-        alert('Failed to start gesture control');
+        // alert('Failed to start gesture control');
+        console.error('Error:', data.message);  // Add this to log errors
       }
     } catch (error) {
-      alert('Error occurred while starting gesture control');
+      // alert('Error occurred while starting gesture control');
+      console.error('Fetch error:', error);  // Add this to log fetch errors
     }
   };
-
-dddddddd
   
-  // const openCamera = async () => {
-  //   try {
-  //     await navigator.mediaDevices.getUserMedia({ video: true });
-  //     alert('Camera access granted');
-
-  //     // Trigger the Python script on the server side
-  //     const response = await fetch('http://localhost:5000/start_camera'); // This calls your Flask backend
-      
-  //     if (response.ok) {
-  //       const data = await response.json();
-  //       alert(data.message);
-  //     } else {
-  //       alert('Failed to start gesture control');
-  //     }
-      
-  //   } catch (error) {
-  //     alert('Camera access denied');
-  //   }
-  // };
-
   return (
     <div className="guide" style={{ backgroundImage: `url(${BackgroundImg})`,
     backgroundSize: 'cover', backgroundPosition: 'center', 
