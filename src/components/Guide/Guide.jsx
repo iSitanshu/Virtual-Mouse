@@ -18,6 +18,7 @@ const Guide = () => {
       }
     } catch (error) {
       // alert('Error occurred while starting gesture control');
+      // 
       console.error('Fetch error:', error);  // Add this to log fetch errors
     }
   };
