@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "start": "concurrently \"npm run start-react\" \"npm run start-flask\"",
     "start-react": "vite",
-    "start-flask": "node startFlask.js"
+    "start-flask": "node startFlask.cjs"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
