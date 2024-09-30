@@ -8,3 +8,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
   </React.StrictMode>,
 )
+
+// NOTE - node startFlask.cjs and python app.py
