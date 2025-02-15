@@ -1,28 +1,26 @@
-import os
 from flask import Flask, jsonify
+from flask_cors import CORS
 import subprocess
 
 app = Flask(__name__)
+CORS(app)
 
-# Endpoint to trigger the Gesture_Controller.py script
 @app.route('/start_camera', methods=['GET'])
 def start_camera():
     try:
-        script_path = os.path.abspath(r'C:\Users\Sitanshu\Virtual_Mouse\Virtual-Mouse\Gesture-Controlled-Virtual-Mouse\src\Gesture_Controller.py')
-
-        if not os.path.exists(script_path):
-            app.logger.error('Script not found at the specified path.')
-            return jsonify({"message": "Script not found!"}), 404
-
-        result = subprocess.Popen(['python', script_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-
-        app.logger.info('Gesture control script started successfully.')
-        return jsonify({"message": "Gesture control started successfully!"}), 200
-
+        # Run the Python script
+        result = subprocess.run(['python', 'Gesture-Controller.py'], check=True, capture_output=True, text=True)
+        print("Script output:", result.stdout)  # Log script output
+        return jsonify({"message": "Camera started successfully!"}), 200
+    except subprocess.CalledProcessError as e:
+        print("Script error:", e.stderr)  # Log script error
+        return jsonify({"message": f"Failed to start camera: {str(e)}"}), 500
+    except FileNotFoundError as e:
+        print("File not found error:", str(e))  # Log file not found error
+        return jsonify({"message": f"File not found: {str(e)}"}), 500
     except Exception as e:
-        app.logger.error(f"Error: {str(e)}")
-        return jsonify({"message": f"Error: {str(e)}"}), 500
-
+        print("Unexpected error:", str(e))  # Log unexpected errors
+        return jsonify({"message": f"An unexpected error occurred: {str(e)}"}), 500
 
 if __name__ == '__main__':
-    app.run(port=5000)
+    app.run(debug=True) 

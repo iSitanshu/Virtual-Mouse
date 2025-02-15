@@ -8,18 +8,14 @@ const Guide = () => {
   const openCamera = async () => {
     try {
       const response = await fetch('http://localhost:5000/start_camera');
-      const data = await response.json();
-  
-      if (response.ok) {
-        alert(data.message);
-      } else {
-        // alert('Failed to start gesture control');
-        console.error('Error:', data.message);  // Add this to log errors
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
       }
+      const data = await response.json();
+      alert(data.message);
     } catch (error) {
-      // alert('Error occurred while starting gesture control');
-      // 
-      console.error('Fetch error:', error);  // Add this to log fetch errors
+      console.error('Fetch error:', error);
+      alert('Failed to start camera. Check the console for details.');
     }
   };
   
