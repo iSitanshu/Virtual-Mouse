@@ -9,7 +9,7 @@ CORS(app)
 def start_camera():
     try:
         # Run the Python script
-        result = subprocess.run(['python', 'Gesture-Controller.py'], check=True, capture_output=True, text=True)
+        result = subprocess.run(['python', 'Gesture-Controlled-Virtual-Mouse/src/Gesture_Controller.py'], check=True, capture_output=True, text=True)
         print("Script output:", result.stdout)  # Log script output
         return jsonify({"message": "Camera started successfully!"}), 200
     except subprocess.CalledProcessError as e:
