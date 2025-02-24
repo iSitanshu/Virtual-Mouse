@@ -5,6 +5,16 @@ import { BackgroundImg } from '../../assets/assets';
 import { camera, hand, socialmedia } from '../../assets/assets';
 
 const Guide = () => {
+  const [isCameraOn, setIsCameraOn] = useState(false);
+
+  const toggleCamera = async () => {
+    if (isCameraOn) {
+      await stopCamera();
+    } else {
+      await openCamera();
+    }
+  };
+
   const openCamera = async () => {
     try {
       const response = await fetch('http://localhost:5000/start_camera');
@@ -12,12 +22,29 @@ const Guide = () => {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       const data = await response.json();
+      setIsCameraOn(true);   
       alert(data.message);
     } catch (error) {
       console.error('Fetch error:', error);
       alert('Failed to start camera. Check the console for details.');
+      setIsCameraOn(false); 
     }
-  };
+  }
+  const stopCamera = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/stop_camera");
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const data = await response.json();
+      setIsCameraOn(false);  // <-- Update state FIRST
+      alert(data.message); 
+    } catch (error) {
+      console.error("Fetch error:", error);
+      alert("Failed to stop camera. Check the console for details.");
+      setIsCameraOn(true); 
+    }
+  }
   
   return (
     <div className="guide" style={{ backgroundImage: `url(${BackgroundImg})`,
@@ -29,8 +56,8 @@ const Guide = () => {
           stepImage={camera}
           stepTitle="Enable Camera Access"
           stepDescription="Raise your hand with an open palm towards the camera and allow the website to access your camera."
-          buttonLabel="Click Me"
-          onButtonClick={openCamera}
+          buttonLabel={isCameraOn ? "Stop Camera" : "Start Camera"}
+          onButtonClick={toggleCamera}
         />
         <div className="arrow"></div>
         <StepCard

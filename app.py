@@ -1,9 +1,13 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 import subprocess
+import os
+import signal
 
 app = Flask(__name__)
 CORS(app)
+
+camera_process = None   
 
 @app.route('/start_camera', methods=['GET'])
 def start_camera():
@@ -21,6 +25,20 @@ def start_camera():
     except Exception as e:
         print("Unexpected error:", str(e))  # Log unexpected errors
         return jsonify({"message": f"An unexpected error occurred: {str(e)}"}), 500
+
+@app.route('/stop_camera', methods=['GET'])
+def stop_camera():
+    global camera_process
+    if camera_process:
+        try:
+            os.kill(camera_process.pid, signal.SIGTERM)  # Terminate the process
+            camera_process = None  # Reset process reference
+            return jsonify({"message": "Camera stopped successfully!"}), 200
+        except Exception as e:
+            return jsonify({"message": f"Failed to stop camera: {str(e)}"}), 500
+    else:
+        return jsonify({"message": "No camera process is running!"}), 400
+
 
 if __name__ == '__main__':
     app.run(debug=True) 
